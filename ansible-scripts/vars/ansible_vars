@@ -1,0 +1,10 @@
+--- 
+# Variables used in ansible-playbooks 
+gcp_project: carls-project-304011 #Change to your project ID
+gcp_cred_kind: serviceaccount
+gcp_cred_file: /home/calle/misc/carls-project-304011-56f49dcf222b.json #Change to your credential .json file
+zone: "europe-north1-c"           #Change to zone of your choosing 
+region: "europe-north1"           #Change to region of your choosing
+servername: "test-object"         #Change name of your server
+machine_type: "n1-standard-4"     #Change machine type of your choosing 
+image: "projects/ubuntu-os-cloud/global/images/family/ubuntu-1804-lts"  
