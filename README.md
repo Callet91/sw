@@ -5,7 +5,7 @@ A tensorflow template aimed to ease the workflow of tensorflow projects on GCP.
 ## Table of Contents
 * [Motivation](#motivation)
 * [Prerequisite](#prerequisite)
-* [Gettin started](#getting-started)
+* [Getting started](#getting-started)
   * [Create a project](#create-a-project)
   * [Create a service account](#create-a-project)
   * [Grant Ansible access](#grant-ansible-access)
