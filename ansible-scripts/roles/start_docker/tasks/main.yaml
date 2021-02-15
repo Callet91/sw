@@ -1,0 +1,38 @@
+---
+
+- name: Build Docker image
+  docker_image:
+    build: 
+      path: "{{workspace}}/"
+    name: "{{docker_image_name}}"
+    pull: yes
+    source: build
+
+- name: Run docker container 
+  docker_container:
+    name: "{{docker_container_name}}"
+    auto_remove: yes 
+    image: "{{docker_image_name}}"
+    published_ports: 
+    - "8888:8888"
+    detach: true
+    volumes:
+      - /home/sa_117158779076975937321/workspaces/my_project
+
+- name: Wait for container to start
+  pause: 
+    seconds: 10
+
+- name: Retrive jupyter tooken
+  shell: 
+    cmd: docker logs 2>&1 {{docker_container_name}} | grep "token"
+    executable: /bin/bash
+  register: docker_output
+
+- name: Print tooken
+  debug:
+    msg: "Copy token {{ docker_output.stdout }}"
+
+- name: Print ip 
+  debug: 
+    msg: "Please visit jupyter notebook at {{ hostvars['localhost']['gce_ip'].address }}:{{ jupyter_port }}"

@@ -1,0 +1,8 @@
+
+###################################################
+## Requriements for ansible-tensorflow-boilerplate
+###################################################
+jupyter 
+notebook
+tensorflow
+pytest

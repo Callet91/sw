@@ -1,0 +1,6 @@
+--- 
+# Variables used for config of Docker. Change if you want to call your image, container or workspace for something else
+docker_image_name:  my_jupyter_docker_image
+docker_container_name: my_jupyter_docker_container
+workspace: my_project 
+jupyter_port: 8888

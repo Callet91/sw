@@ -1,0 +1,17 @@
+--- 
+- name: Check if source files exists
+  stat: 
+    path: "{{workspace}}/src"
+  register: source_files
+
+- name: Copy soruce files to directory 
+  ansible.builtin.copy: 
+    src: "{{playbook_dir}}/../src"
+    dest: "{{workspace}}/"
+  when: not source_files.stat.exists
+
+- name: Copy Dockerfile 
+  ansible.builtin.copy: 
+    src: "{{playbook_dir}}/../Dockerfile" 
+    dest: "{{workspace}}/Dockerfile"
+  when: not source_files.stat.exists
